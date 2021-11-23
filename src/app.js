@@ -1,6 +1,9 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
+import errorHandling from './middlewares/errorHandling';
+import errorNotFound from './middlewares/errorNotFound';
+
 dotenv.config();
 const app = express();
 
@@ -14,6 +17,7 @@ app.get('/', (req, res, next) => {
   }
 });
 
-app.listen(process.env.PORT, () =>
-  console.log(`Server is listening on port ${process.env.PORT}`)
-);
+app.use(errorHandling);
+app.use(errorNotFound);
+
+app.listen(process.env.PORT, () => console.log(`Server is listening on port ${process.env.PORT}`));

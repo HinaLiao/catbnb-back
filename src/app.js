@@ -1,11 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 
+import initMongoDb from './database/db.config';
+
 import errorHandling from './middlewares/errorHandling';
 import errorNotFound from './middlewares/errorNotFound';
 
 dotenv.config();
 const app = express();
+
+initMongoDb();
 
 app.use(express.json());
 

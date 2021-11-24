@@ -3,6 +3,8 @@ import dotenv from 'dotenv';
 
 import initMongoDb from './database/db.config';
 
+import routes from './routes';
+
 import errorHandling from './middlewares/errorHandling';
 import errorNotFound from './middlewares/errorNotFound';
 
@@ -13,13 +15,7 @@ initMongoDb();
 
 app.use(express.json());
 
-app.get('/', (req, res, next) => {
-  try {
-    res.json({ message: 'Hello Cat Sitters!' });
-  } catch (error) {
-    next(error);
-  }
-});
+app.use('/api', routes);
 
 app.use(errorHandling);
 app.use(errorNotFound);

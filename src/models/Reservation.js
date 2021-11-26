@@ -8,7 +8,7 @@ const catSittingSchema = new Schema(
       minlength: 6,
       maxlength: 30,
     },
-    description: { type: String, maxlength: 50 },
+    description: { type: String, maxlength: 250 },
     tasks: [{ type: Schema.Types.ObjectId, ref: 'task', default: [] }],
     owner: { type: Schema.Types.ObjectId, ref: 'user', required: true },
   },

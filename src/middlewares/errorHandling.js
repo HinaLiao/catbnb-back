@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 const errorHandling = (err, req, res, next) => {
   res.status(err.status || 500).json({
-    message: err.message || 'A problem occurred. Please try again later',
+    message: err.message || 'Something went wrong, please try again later',
   });
 };
 

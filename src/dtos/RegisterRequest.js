@@ -20,18 +20,21 @@ class RegisterRequest {
         .email('Field must have an email format'),
       password: yup
         .string()
-        .required('required field')
+        .required('Required field')
         .min(6, 'Minimum of 6 characters')
-        .max(150, 'Maximum of 150 characters'),
+        .max(100, 'Maximum of 100 characters'),
     });
   }
 
   async validate() {
-    await validateSchema(this.schema, {
-      name: this.name,
-      email: this.email,
-      password: this.password,
-    });
+    await validateSchema(
+      this.schema,
+      {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+      },
+    );
   }
 }
 

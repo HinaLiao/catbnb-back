@@ -1,38 +1,24 @@
 import { Router } from 'express';
 
-import { generateHash } from '../utils/bcrypt';
+import RegisterRequest from '../dtos/RegisterRequest';
+import LoginRequest from '../dtos/LoginRequest';
 
 import User from '../models/User';
-import UserExistsException from '../exceptions/UserExistsException';
+import AuthService from '../service/authService';
+import AuthRepository from '../repository/authRepository';
 
-import RegisterRequest from '../dtos/RegisterRequest';
+const authRepository = new AuthRepository(User);
+const authService = new AuthService(authRepository);
 
 const router = Router();
 
 router.post('/register', async (req, res, next) => {
   try {
     const body = new RegisterRequest(req.body);
-    await body.validate();
 
-    const foundUser = await User.findOne({ email: body.email });
+    const userResponse = await authService.register(body);
 
-    if (foundUser) {
-      throw new UserExistsException();
-    }
-
-    const encryptedPassword = generateHash(body.password, 10);
-
-    const newUser = { ...body, password: encryptedPassword };
-
-    const savedUser = await User.create(newUser);
-
-    const response = {
-      id: savedUser._id,
-      name: savedUser.name,
-      email: savedUser.email,
-    };
-
-    res.status(201).json(response);
+    res.status(201).json(userResponse);
   } catch (error) {
     next(error);
   }
@@ -40,7 +26,10 @@ router.post('/register', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
   try {
-    res.status(200).json(req.body);
+    const body = new LoginRequest(req.body);
+
+    const loginResponse = await authService.login(body);
+    res.status(200).json(loginResponse);
   } catch (error) {
     next(error);
   }

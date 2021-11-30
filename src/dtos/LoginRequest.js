@@ -11,7 +11,7 @@ class LoginRequest {
       email: yup
         .string()
         .required('Required field')
-        .email('Field must have an email format'),
+        .email('Please enter a valid email format'),
       password: yup
         .string()
         .required('Required field')

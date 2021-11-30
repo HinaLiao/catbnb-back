@@ -16,6 +16,6 @@ const agendaSchema = new Schema(
   },
 );
 
-const Agenda = model('task', agendaSchema);
+const Agenda = model('agenda', agendaSchema);
 
 export default Agenda;

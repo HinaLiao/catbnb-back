@@ -9,5 +9,8 @@ export const generateLoginToken = (payload) => (
 );
 
 export const verifyLoginToken = (token) => (
-  jwt.verify(token, process.env.TOKEN_LOGIN_SK)
+  jwt.verify(
+    token,
+    process.env.TOKEN_LOGIN_SK,
+  )
 );

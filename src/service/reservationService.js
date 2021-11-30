@@ -10,8 +10,8 @@ class ReservationService {
   async findAllByTitleAndOwnerId(id, title = '') {
     const reservations = await this.reservationRepository
       .findAllByTitleAndOwnerId(
-        title,
         id,
+        title,
       );
 
     return reservations;

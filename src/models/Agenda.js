@@ -9,7 +9,7 @@ const agendaSchema = new Schema(
       maxlength: 150,
     },
     description: { type: String, maxlength: 150 },
-    project: { type: Schema.Types.ObjectId, ref: 'ways', required: true },
+    reservation: { type: Schema.Types.ObjectId, ref: 'ways', required: true },
   },
   {
     timestamps: true,

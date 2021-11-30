@@ -9,7 +9,7 @@ const catSittingSchema = new Schema(
       maxlength: 30,
     },
     description: { type: String, maxlength: 250 },
-    agenda: [{ type: Schema.Types.ObjectId, ref: 'task', default: [] }],
+    agenda: [{ type: Schema.Types.ObjectId, ref: 'agenda', default: [] }],
     owner: { type: Schema.Types.ObjectId, ref: 'user', required: true },
   },
   {

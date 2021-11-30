@@ -13,6 +13,6 @@ router.use('/auth', authController);
 router.use(protectedRouteMiddleware);
 
 router.use('/reservation', reservationController);
-router.use('/checkout', agendaController);
+router.use('/agenda', agendaController);
 
 export default router;

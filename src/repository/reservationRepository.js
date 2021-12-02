@@ -21,10 +21,12 @@ class ReservationRepository {
   }
 
   async findOneByIdAndOwnerId(id, ownerId) {
-    const reservation = await this.Model.findOne({
-      _id: id,
-      owner: ownerId,
-    });
+    const reservation = await this.Model
+      .findOne({
+        _id: id,
+        owner: ownerId,
+      })
+      .populate('agenda');
 
     return reservation;
   }
@@ -43,6 +45,14 @@ class ReservationRepository {
 
   async deleteOneById(id) {
     await this.Model.findByIdAndDelete(id);
+  }
+
+  async insertAgendaIdIntoReservation(reservationId, agendaId) {
+    await this.Model.findByIdAndUpdate(reservationId, { $push: { agenda: agendaId } });
+  }
+
+  async removeAgendaIdFromReservation(reservationId, agendaId) {
+    await this.Model.findByIdAndUpdate(reservationId, { $pull: { agenda: agendaId } });
   }
 }
 

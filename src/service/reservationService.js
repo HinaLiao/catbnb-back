@@ -26,7 +26,10 @@ class ReservationService {
       owner: id,
     };
 
-    const newReservation = await this.reservationRepository.create(reservationData);
+    const newReservation = await this.reservationRepository
+      .create(
+        reservationData,
+      );
 
     return newReservation;
   }
@@ -74,15 +77,30 @@ class ReservationService {
   }
 
   async validateReservationExists(id, ownerId) {
-    const reservation = await this.reservationRepository
-      .findOneByIdAndOwnerId(
-        id,
-        ownerId,
-      );
+    const reservation = await this.reservationRepository.findOneByIdAndOwnerId(
+      id,
+      ownerId,
+    );
 
     if (!reservation) {
       throw new ReservationNotFoundException();
     }
+  }
+
+  async insertAgendaIdIntoReservation(reservationId, agendaId) {
+    await this.reservationRepository
+      .insertAgendaIdIntoReservation(
+        reservationId,
+        agendaId,
+      );
+  }
+
+  async removeAgendaIdFromReservation(reservationId, agendaId) {
+    await this.reservationRepository
+      .removeAgendaIdFromReservation(
+        reservationId,
+        agendaId,
+      );
   }
 }
 

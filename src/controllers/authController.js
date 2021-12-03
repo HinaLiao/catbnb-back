@@ -29,6 +29,7 @@ router.post('/login', async (req, res, next) => {
     const body = new LoginRequest(req.body);
 
     const loginResponse = await authService.login(body);
+
     res.status(200).json(loginResponse);
   } catch (error) {
     next(error);

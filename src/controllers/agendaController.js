@@ -6,8 +6,8 @@ import EditAgendaRequest from '../dtos/EditAgendaRequest';
 import Agenda from '../models/Agenda';
 import Reservation from '../models/Reservation';
 import AgendaService from '../service/agendaService';
-import ReservationService from '../service/reservationService';
 import AgendaRepository from '../repository/agendaRepository';
+import ReservationService from '../service/reservationService';
 import ReservationRepository from '../repository/reservationRepository';
 
 const agendaRepository = new AgendaRepository(Agenda);
@@ -79,19 +79,3 @@ router.delete('/:taskId', async (req, res, next) => {
 });
 
 export default router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

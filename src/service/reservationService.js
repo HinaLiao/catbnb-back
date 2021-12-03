@@ -77,10 +77,11 @@ class ReservationService {
   }
 
   async validateReservationExists(id, ownerId) {
-    const reservation = await this.reservationRepository.findOneByIdAndOwnerId(
-      id,
-      ownerId,
-    );
+    const reservation = await this.reservationRepository
+      .findOneByIdAndOwnerId(
+        id,
+        ownerId,
+      );
 
     if (!reservation) {
       throw new ReservationNotFoundException();

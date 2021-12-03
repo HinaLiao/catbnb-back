@@ -1,5 +1,6 @@
 import * as yup from 'yup';
 import validateSchema from '../validation/validationSchema';
+
 class CreateAgendaRequest {
   constructor({ title, description }) {
     this.title = title;
@@ -15,6 +16,7 @@ class CreateAgendaRequest {
         .max(150, 'Maximum of 150 characters'),
     });
   }
+
   async validate() {
     await validateSchema(this.schema, {
       title: this.title,

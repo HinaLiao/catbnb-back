@@ -1,9 +1,9 @@
 class AgendaNotFoundException extends Error {
-    constructor() {
-      super();
-      this.message = 'Agenda not found';
-      this.status = 400;
-    }
+  constructor() {
+    super();
+    this.message = 'Agenda not found';
+    this.status = 400;
   }
-  
-  export default AgendaNotFoundException;
+}
+
+export default AgendaNotFoundException;

@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const errorHandling = (err, req, res, next) => {
   res
     .status(err.status || 500)

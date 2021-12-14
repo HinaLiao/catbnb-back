@@ -10,8 +10,9 @@ const userSchema = new Schema(
     },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, enum: ['Host', 'Costumer'], default: 'Costumer' },
+    role: { type: String, enum: ['Host', 'Costumer'] },
     active: { type: Boolean, default: true },
+    weekDays: { type: Number, enum: [0, 1, 2, 3, 4, 5, 6] },
   },
   {
     timestamps: true,

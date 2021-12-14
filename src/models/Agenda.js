@@ -10,6 +10,7 @@ const agendaSchema = new Schema(
     },
     description: { type: String, maxlength: 150 },
     reservation: { type: Schema.Types.ObjectId, ref: 'ways', required: true },
+    availableDays: { type: Schema.Types.ObjectId, ref: 'user' },
   },
   {
     timestamps: true,

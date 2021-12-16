@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 
 import initMongoDb from './database/db.config';
 
@@ -14,6 +15,11 @@ const app = express();
 initMongoDb();
 
 app.use(express.json());
+app.use(
+  cors({
+    origin: process.env.CATBNB_URI,
+  }),
+);
 
 app.use('/api', routes);
 

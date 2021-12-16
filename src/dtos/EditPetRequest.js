@@ -37,7 +37,7 @@ class EditPetRequest {
         .oneOf(['Filhote', 'Adulto', 'Idoso']),
       vaccinated: yup.boolean().required('Required field'),
       diseases: yup
-        .string()
+        .array()
         .required('Required field')
         .oneOf(['FIV+', 'FELV+', 'no']),
       observations: yup.string().max(150, 'Maximum of 150 characters'),

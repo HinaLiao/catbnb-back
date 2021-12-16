@@ -26,12 +26,12 @@ const petsSchema = new Schema(
       type: Boolean,
       required: true,
     },
-    diseases: {
+    diseases: [{
       type: String,
       required: true,
       enum: ['FIV+', 'FELV+', 'no'],
       default: 'no',
-    },
+    }],
     observations: {
       type: String,
       required: false,

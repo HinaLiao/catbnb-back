@@ -11,7 +11,6 @@ const userSchema = new Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String, enum: ['Host', 'Customer'], default: 'Customer' },
-    active: { type: Boolean, default: true },
     weekDays: { type: Number, enum: [0, 1, 2, 3, 4, 5, 6] },
     about: { type: String, minleght: 50, maxlength: 350 },
     skills: {
@@ -27,6 +26,7 @@ const userSchema = new Schema(
       ],
       default: 'Supervisão 24h',
     },
+    active: { type: Boolean, default: true },
   },
   {
     timestamps: true,

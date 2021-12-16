@@ -124,7 +124,7 @@ router.get(
 );
 
 router.put(
-  'meus-compromissos/:taskId',
+  '/meus-compromissos/:taskId',
   validateRoleMiddleware(['Customer']),
   async (req, res, next) => {
     try {

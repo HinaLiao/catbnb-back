@@ -1,4 +1,3 @@
-
 class AgendaRepository {
   constructor(Model) {
     this.Model = Model;

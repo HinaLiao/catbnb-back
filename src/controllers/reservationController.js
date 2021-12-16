@@ -115,7 +115,7 @@ router.delete(
   },
 );
 
-// router.get('/', async (req, res, next) => {
+// router.get('/', validateRoleMiddleware(['Customer']), async (req, res, next) => {
 //   try {
 //     const { title } = req.query;
 //     const { id } = req.user;

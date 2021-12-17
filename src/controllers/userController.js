@@ -17,7 +17,7 @@ router.get('/', async (req, res, next) => {
   try {
     const { id } = req.user;
 
-    const user = await userService.findById(id);
+    const user = await userService.validateUserExists(id);
 
     res.json(user);
   } catch (error) {

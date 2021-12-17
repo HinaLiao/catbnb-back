@@ -18,7 +18,7 @@ class UserRepository {
     return editedUser;
   }
 
-  async deleteOne(id) {
+  async findByIdAndDelete(id) {
     await this.Model.findByIdAndDelete(id);
   }
 }

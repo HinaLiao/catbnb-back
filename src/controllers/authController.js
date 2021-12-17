@@ -41,6 +41,16 @@ router.post('/login', async (req, res, next) => {
   }
 });
 
+router.get('/:day', async (req, res, next) => {
+  try {
+    const { day } = req.params;
+    const availableUsers = await authService.findUsersByWeekDays(day);
+    res.json(availableUsers);
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.get('/reservation', async (req, res, next) => {
   try {
     const { title } = req.query;

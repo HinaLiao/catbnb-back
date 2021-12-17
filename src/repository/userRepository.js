@@ -21,12 +21,6 @@ class UserRepository {
   async findByIdAndDelete(id) {
     await this.Model.findByIdAndDelete(id);
   }
-
-  async findUsersByWeekDays(day) {
-    const availableUsers = await this.Model.find({ unavailableWeekDays: { $ne: day } });
-
-    return availableUsers;
-  }
 }
 
 export default UserRepository;

@@ -13,12 +13,12 @@ const petsService = new PetsService(petsRepository);
 
 const router = Router();
 
-router.get('/pets', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const { name } = req.query;
     const { id } = req.user;
 
-    const pets = await petsService.findAllByTitleAndOwnerId(name, id);
+    const pets = await petsService.findAllByNameAndOwnerId(name, id);
 
     res.json(pets);
   } catch (error) {
@@ -26,15 +26,12 @@ router.get('/pets', async (req, res, next) => {
   }
 });
 
-router.get('/pets/:petId', async (req, res, next) => {
+router.get('/:petId', async (req, res, next) => {
   try {
     const { id } = req.user;
     const { petId } = req.params;
 
-    const pet = await Pets.findOneByIdAndOwnerId({
-      _id: petId,
-      owner: id,
-    });
+    const pet = await petsService.findOneByIdAndOwnerId(petId, id);
 
     res.json(pet);
   } catch (error) {
@@ -42,12 +39,13 @@ router.get('/pets/:petId', async (req, res, next) => {
   }
 });
 
-router.post('/pets/registerNewPet', async (req, res, next) => {
+router.post('/registerNewPet', async (req, res, next) => {
   try {
+    const body = new CreatePetRequest(req.body);
     const { id } = req.user;
-    const { body } = new CreatePetRequest(req.body);
 
-    const newPet = await Pets.create(body, id);
+    const newPet = await petsService.create(body, id);
+    console.log(newPet);
 
     res.status(201).json(newPet);
   } catch (error) {
@@ -55,13 +53,13 @@ router.post('/pets/registerNewPet', async (req, res, next) => {
   }
 });
 
-router.put('/pets/:petId', async (req, res, next) => {
+router.put('/:petId', async (req, res, next) => {
   try {
     const { id } = req.user;
     const { petId } = req.params;
-    const { body } = EditPetRequest(req.body);
+    const body = new EditPetRequest(req.body);
 
-    const editedPet = await Pets.findByIdAndUpdate(petId, id, body, {
+    const editedPet = await petsService.findByIdAndUpdate(petId, id, body, {
       new: true,
     });
 
@@ -71,12 +69,12 @@ router.put('/pets/:petId', async (req, res, next) => {
   }
 });
 
-router.delete('/pets/:petId', async (req, res, next) => {
+router.delete('/:petId', async (req, res, next) => {
   try {
     const { id } = req.user;
     const { petId } = req.params;
 
-    await Pets.findByIdAndDelete(petId, id);
+    await petsService.findByIdAndDelete(petId, id);
 
     res.status(204).json();
   } catch (error) {

@@ -3,7 +3,7 @@ class PetsRepository {
     this.Model = Model;
   }
 
-  async findAllByTitleAndOwnerId(name, id) {
+  async findAllByNameAndOwnerId(name, id) {
     const nameRegex = new RegExp(name, 'i');
 
     const pets = await this.Model.find({

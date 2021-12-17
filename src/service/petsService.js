@@ -7,8 +7,8 @@ class PetsService {
     this.petsRepository = petsRepository;
   }
 
-  async findAllByTitleAndOwnerId(title = '', id) {
-    const pets = await this.petsRepository.findAllByTitleAndOwnerId(title, id);
+  async findAllByNameAndOwnerId(name = '', id) {
+    const pets = await this.petsRepository.findAllByNameAndOwnerId(name, id);
 
     return pets;
   }
@@ -40,7 +40,7 @@ class PetsService {
     return pet;
   }
 
-  async updateOne(id, ownerId, body) {
+  async findByIdAndUpdate(id, ownerId, body) {
     await body.validate();
     validateId(id);
 
@@ -61,7 +61,7 @@ class PetsService {
     return editedPet;
   }
 
-  async deleteOne(id, ownerId) {
+  async findByIdAndDelete(id, ownerId) {
     validateId(id);
 
     await this.validatePetExists(id, ownerId);

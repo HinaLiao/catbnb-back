@@ -37,10 +37,7 @@ class CreatePetRequest {
         .oneOf(['Filhote', 'Adulto', 'Idoso']),
       vaccinated: yup.boolean().required('Required field'),
       diseases: yup
-        .required('Required field')
-        .array()
-        .of(yup.mixed().oneOf(['FIV+', 'FELV+', 'no'])),
-      // .mixed().oneOf(['FIV+', 'FELV+', 'no']),
+        .array(),
       observations: yup.string().max(150, 'Maximum of 150 characters'),
     });
   }

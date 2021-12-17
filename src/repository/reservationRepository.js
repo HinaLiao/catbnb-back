@@ -14,6 +14,16 @@ class ReservationRepository {
     return reservations;
   }
 
+  async findAllByTitle(title) {
+    const titleRegex = new RegExp(title, 'i');
+
+    const reservations = await this.Model.find({
+      title: { $regex: titleRegex },
+    });
+
+    return reservations;
+  }
+
   async create(reservationData) {
     const newReservation = await this.Model.create(reservationData);
 
@@ -21,12 +31,10 @@ class ReservationRepository {
   }
 
   async findOneByIdAndOwnerId(id, ownerId) {
-    const reservation = await this.Model
-      .findOne({
-        _id: id,
-        owner: ownerId,
-      })
-      .populate('agenda');
+    const reservation = await this.Model.findOne({
+      _id: id,
+      owner: ownerId,
+    }).populate('agenda');
 
     return reservation;
   }
@@ -48,11 +56,15 @@ class ReservationRepository {
   }
 
   async insertAgendaIdIntoReservation(reservationId, agendaId) {
-    await this.Model.findByIdAndUpdate(reservationId, { $push: { agenda: agendaId } });
+    await this.Model.findByIdAndUpdate(reservationId, {
+      $push: { agenda: agendaId },
+    });
   }
 
   async removeAgendaIdFromReservation(reservationId, agendaId) {
-    await this.Model.findByIdAndUpdate(reservationId, { $pull: { agenda: agendaId } });
+    await this.Model.findByIdAndUpdate(reservationId, {
+      $pull: { agenda: agendaId },
+    });
   }
 }
 

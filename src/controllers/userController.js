@@ -13,7 +13,7 @@ const userService = new UserService(userRepository);
 const router = Router();
 
 // get user profile
-router.get('/meu-perfil', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const { id } = req.user;
 
@@ -26,7 +26,7 @@ router.get('/meu-perfil', async (req, res, next) => {
 });
 
 // edit user profile
-router.put('/meu-perfil', async (req, res, next) => {
+router.put('/', async (req, res, next) => {
   try {
     const { id } = req.user;
 
@@ -41,7 +41,7 @@ router.put('/meu-perfil', async (req, res, next) => {
 });
 
 router.put(
-  '/meu-perfil-host',
+  '/host',
   validateRoleMiddleware(['Host']),
   async (req, res, next) => {
     try {
@@ -59,7 +59,7 @@ router.put(
 );
 
 // delete user profile
-router.delete('/meu-perfil', async (req, res, next) => {
+router.delete('/', async (req, res, next) => {
   try {
     const { id } = req.user;
 

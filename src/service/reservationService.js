@@ -9,10 +9,13 @@ class ReservationService {
 
   async findAllByTitleAndOwnerId(id, title = '') {
     const reservations = await this.reservationRepository
-      .findAllByTitleAndOwnerId(
-        id,
-        title,
-      );
+      .findAllByTitleAndOwnerId(id, title);
+
+    return reservations;
+  }
+
+  async findAllByTitle(title = '') {
+    const reservations = await this.reservationRepository.findAllByTitle(title);
 
     return reservations;
   }
@@ -37,11 +40,10 @@ class ReservationService {
   async findOneByIdAndOwnerId(id, ownerId) {
     validateId(id);
 
-    const reservation = await this.reservationRepository
-      .findOneByIdAndOwnerId(
-        id,
-        ownerId,
-      );
+    const reservation = await this.reservationRepository.findOneByIdAndOwnerId(
+      id,
+      ownerId,
+    );
 
     return reservation;
   }
@@ -77,11 +79,10 @@ class ReservationService {
   }
 
   async validateReservationExists(id, ownerId) {
-    const reservation = await this.reservationRepository
-      .findOneByIdAndOwnerId(
-        id,
-        ownerId,
-      );
+    const reservation = await this.reservationRepository.findOneByIdAndOwnerId(
+      id,
+      ownerId,
+    );
 
     if (!reservation) {
       throw new ReservationNotFoundException();
@@ -89,19 +90,17 @@ class ReservationService {
   }
 
   async insertAgendaIdIntoReservation(reservationId, agendaId) {
-    await this.reservationRepository
-      .insertAgendaIdIntoReservation(
-        reservationId,
-        agendaId,
-      );
+    await this.reservationRepository.insertAgendaIdIntoReservation(
+      reservationId,
+      agendaId,
+    );
   }
 
   async removeAgendaIdFromReservation(reservationId, agendaId) {
-    await this.reservationRepository
-      .removeAgendaIdFromReservation(
-        reservationId,
-        agendaId,
-      );
+    await this.reservationRepository.removeAgendaIdFromReservation(
+      reservationId,
+      agendaId,
+    );
   }
 }
 

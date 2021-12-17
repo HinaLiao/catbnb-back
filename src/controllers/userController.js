@@ -25,6 +25,18 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+// route for reservation
+
+router.get('/:day', async (req, res, next) => {
+  try {
+    const { day } = req.params;
+    const availableUsers = await userService.findUsersByWeekDays(day);
+    res.json(availableUsers);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // edit user profile
 router.put('/', async (req, res, next) => {
   try {

@@ -43,6 +43,12 @@ class UserService {
       throw new UserNotFoundException();
     }
   }
+
+  async findUsersByWeekDays(day) {
+    const foundUsers = await this.userRepository.findUsersByWeekDays(day);
+
+    return foundUsers;
+  }
 }
 
 export default UserService;

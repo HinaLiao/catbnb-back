@@ -15,16 +15,14 @@ class UserService {
     return user;
   }
 
-  async updateOne(body, ownerId) {
-    await body.validate();
-
+  async updateOne(ownerId, body) {
     const userData = {
       name: body.name,
     };
 
     const editedUser = await this.userRepository.updateUserById(
-      userData,
       ownerId,
+      userData,
     );
 
     return editedUser;

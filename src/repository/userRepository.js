@@ -9,9 +9,9 @@ class UserRepository {
     return user;
   }
 
-  async updateUserById(userData, id) {
+  async updateUserById(id, userData) {
     const editedUser = await this.Model
-      .findByIdAndUpdate(userData, id, {
+      .findByIdAndUpdate(id, userData, {
         new: true,
       });
 

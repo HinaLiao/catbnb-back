@@ -1,9 +1,18 @@
+import validateId from '../validation/mongooseValidation';
 import UserNotFoundException from '../exceptions/UserNotFoundException';
 
 class UserService {
   constructor(userRepository, userService) {
     this.userRepository = userRepository;
     this.userService = userService;
+  }
+
+  async findOneById(id) {
+    validateId(id);
+
+    const user = await this.userRepository.findById(id);
+
+    return user;
   }
 
   async updateOne(body, ownerId) {

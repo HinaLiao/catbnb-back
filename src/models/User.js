@@ -11,7 +11,7 @@ const userSchema = new Schema(
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     role: { type: String, enum: ['Host', 'Customer'], default: 'Customer' },
-    weekDays: { type: Number, enum: [0, 1, 2, 3, 4, 5, 6] },
+    unavailableWeekDays: { type: Number, enum: [0, 1, 2, 3, 4, 5, 6] },
     about: { type: String, minleght: 50, maxlength: 350 },
     skills: {
       type: String,

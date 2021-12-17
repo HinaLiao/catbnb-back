@@ -32,7 +32,7 @@ router.put('/', async (req, res, next) => {
 
     const body = new EditUserProfileRequest(req.body);
 
-    const editedUser = await userService.updateOne(id, body);
+    const editedUser = await userService.updateOne(body, id);
 
     res.json(editedUser);
   } catch (error) {

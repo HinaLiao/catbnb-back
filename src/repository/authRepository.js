@@ -14,6 +14,12 @@ class AuthRepository {
 
     return savedUser;
   }
+
+  async findUsersByWeekDays(day) {
+    const availableUsers = await this.Model.find({ unavailableWeekDays: { $ne: day } });
+
+    return availableUsers;
+  }
 }
 
 export default AuthRepository;

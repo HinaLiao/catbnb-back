@@ -56,6 +56,12 @@ class AuthService {
       role: foundUser.role,
     };
   }
+
+  async findUsersByWeekDays(day) {
+    const foundUsers = await this.authRepository.findUsersByWeekDays(day);
+
+    return foundUsers;
+  }
 }
 
 export default AuthService;

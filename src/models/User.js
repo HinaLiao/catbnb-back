@@ -13,7 +13,7 @@ const userSchema = new Schema(
     role: { type: String, enum: ['Host', 'Customer'], default: 'Customer' },
     unavailableWeekDays: { type: Number, enum: [0, 1, 2, 3, 4, 5, 6] },
     about: { type: String, minleght: 50, maxlength: 350 },
-    skills: {
+    skills: [{
       type: String,
       enum: [
         'Primeiros socorros veterinário',
@@ -24,8 +24,8 @@ const userSchema = new Schema(
         'Supervisão 24h',
         'Transporte de emergência',
       ],
-      default: 'Supervisão 24h',
-    },
+      required: false,
+    }],
     active: { type: Boolean, default: true },
   },
   {

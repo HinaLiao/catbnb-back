@@ -24,7 +24,7 @@ const userSchema = new Schema(
         'Supervisão 24h',
         'Transporte de emergência',
       ],
-      default: 'Supervisão 24h',
+      required: false,
     }],
     active: { type: Boolean, default: true },
   },

@@ -11,7 +11,7 @@ const petsSchema = new Schema(
     gender: {
       type: String,
       required: true,
-      enum: ['Macho', 'Fêmea'],
+      enum: ['Macho', 'Femea'],
     },
     castrated: {
       type: Boolean,
@@ -33,7 +33,6 @@ const petsSchema = new Schema(
     observations: {
       type: String,
       required: false,
-      minlength: 3,
       maxlength: 150,
     },
     owner: { type: Schema.Types.ObjectId, ref: 'user', required: true },

@@ -23,8 +23,6 @@ class UserService {
       email: body.email,
     };
 
-    console.log(userData);
-    console.log(ownerId);
     const editedUser = await this.userRepository.updateUserById(
       userData,
       ownerId,

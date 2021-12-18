@@ -45,7 +45,6 @@ router.post('/registerNewPet', async (req, res, next) => {
     const { id } = req.user;
 
     const newPet = await petsService.create(body, id);
-    console.log(newPet);
 
     res.status(201).json(newPet);
   } catch (error) {

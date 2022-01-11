@@ -35,7 +35,7 @@ This SPA has no prerequisites and is ready to be used from the link provided abo
 
 ## Environmental parametres
 
-This SPA has the following environmental variables, which need to be inserted in your own “.env” file:
+This SPA has the following environmental variables, which need to be inserted in your own `.env` file:
 
 ```
 PORT=YOUR_LOCALHOST_ACCESS_PORT

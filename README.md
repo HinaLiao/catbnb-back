@@ -1,8 +1,8 @@
 ## Ironhack WebDev Project #3: CatBnb
 
-CatBnb is an online marketplace application focused on connecting cat owners with loving cat-sitters. Catbnb allows users to search for a professional cat-sitter to come over to their homes or, instead, to leave their feline friends under the care of our cat lovers.
+CatBnb is an online marketplace application focused on connecting cat owners with loving cat-sitters. CatBnb allows users to search for a professional cat-sitter to come over to their homes or, instead, to leave their feline friends under the care of our cat lovers.
 
-Catbnb was developed as a the third and final project for Ironhack's WedDev Full Stack Course. This Single Page Application (SPA) was developed using MERN Stack. Additional dependencies are Bcryptjs, Cors, Express, JsonWebToken, Mongoose and Yup.
+CatBnb was developed as a the third and final project for Ironhack's WedDev Full Stack Course. This Single Page Application (SPA) was developed using MERN Stack. Additional dependencies are Bcryptjs, Cors, Express, JsonWebToken, Mongoose and Yup.
 
 We claim no relationship of any nature with Airbnb and this is merely a didatic exercise in coding.
 
@@ -24,9 +24,10 @@ After 4 weeks of intense studying, coding and trial-and-error the group managed 
 * Stack used in production: NodeJS, ExpressJS, Mongoose, Cors and Bcrypt.
 * Requests implemented: GET, POST, PUT & DELETE
 * Deployed at: Heroku
+<br>
 
 * Link to Front-End aplication: https://thecatbnb.netlify.app/
-* Link to Front-End repository: https://github.com/HinaLiao/catbnb-front
+* Link to Front-End repository: https://github.com/hinaliao/catbnb-front
 
 ## Prerequisites
 
@@ -37,11 +38,11 @@ This SPA has no prerequisites and is ready to be used from the link provided abo
 This SPA has the following environmental variables, which need to be inserted in your own “.env” file:
 
 ```
-PORT=5050
-MONGODB_URI=mongodb://localhost:27017/catbnb
+PORT=YOUR_LOCALHOST_ACCESS_PORT
+MONGODB_URI=mongodb://localhost:27017/YOUR_COLLECTION_NAME_IN_MONGODB
 TOKEN_LOGIN_SK=YOUR_SECRET_KEY
 LOGIN_TOKEN_EXPIRATION=YOUR_TOKEN_EXPIRATION_TIME
-CATBNB_URI=http://localhost:3000
+CATBNB_URI=YOUR_LOCALHOST_URI
 ```
 
 ## Additional implementations and improvements
@@ -58,5 +59,5 @@ Should you want to contribute to our project, please, do not hesitate to fork th
 
 ## Authors and Version Control
 
-REACT SPA aplication developed by **Hina Liao - https://github.com/hinaliao/**, **Júlia Sakakibara - https://github.com/juliasakakibara/** & **Piero Naraya Basto de Sá - https://github.com/desapiero/** - *Catbnb API App Version beta 1.0* - 
+REACT SPA aplication developed by **Hina Liao - https://github.com/hinaliao/**, **Júlia Sakakibara - https://github.com/juliasakakibara/** & **Piero Naraya Basto de Sá - https://github.com/desapiero/** - *CatBnb API App Version beta 1.0* - 
 **Published in December 18th, 2021**

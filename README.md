@@ -1,6 +1,6 @@
-## Ironhack WebDev Project #3: Catbnb
+## Ironhack WebDev Project #3: CatBnb
 
-Catbnb is an online marketplace application focused on connecting cat owners with loving cat-sitters. Catbnb allows users to search for a professional cat-sitter to come over to their homes or, instead, to leave their feline friends under the care of our cat lovers.
+CatBnb is an online marketplace application focused on connecting cat owners with loving cat-sitters. Catbnb allows users to search for a professional cat-sitter to come over to their homes or, instead, to leave their feline friends under the care of our cat lovers.
 
 Catbnb was developed as a the third and final project for Ironhack's WedDev Full Stack Course. This Single Page Application (SPA) was developed using MERN Stack. Additional dependencies are Bcryptjs, Cors, Express, JsonWebToken, Mongoose and Yup.
 
@@ -58,5 +58,5 @@ Should you want to contribute to our project, please, do not hesitate to fork th
 
 ## Authors and Version Control
 
-REACT SPA aplication developed by **Hina Liao - https://github.com/HinaLiao/**, **Júlia Sakakibara - https://github.com/juliasakakibara/** & **Piero Naraya Basto de Sá - https://github.com/desapiero/** - *Catbnb API App Version beta 1.0* - 
+REACT SPA aplication developed by **Hina Liao - https://github.com/hinaliao/**, **Júlia Sakakibara - https://github.com/juliasakakibara/** & **Piero Naraya Basto de Sá - https://github.com/desapiero/** - *Catbnb API App Version beta 1.0* - 
 **Published in December 18th, 2021**
